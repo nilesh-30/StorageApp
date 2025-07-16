@@ -10,7 +10,7 @@ route.get('/*', (req, res) => {
     if (req.query.action === "download") {
         res.set("Content-Disposition", "attachment")
     }
-    res.sendFile(`${import.meta.dirname}/storage/${filePath}`)
+    res.sendFile(`${process.cwd()}/storage/${filePath}`)
 })
 
 route.post('/*', (req, res) => {
@@ -24,7 +24,7 @@ route.post('/*', (req, res) => {
 
 route.delete('/*', async (req, res) => {
     const dirPath = path.join("/", req.params[0])
-    const filePath = `${import.meta.dirname}/storage/${dirPath}`
+    const filePath = `${process.cwd()}/storage/${dirPath}`
     await rm(filePath, { recursive: true})
     res.json({ message: "File Deleted"})
 })
