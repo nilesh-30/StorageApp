@@ -1,15 +1,30 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Directory from "./Directory";
+import DirectoryView from "./DirectoryView";
+import Register from "./Register";
+import "./App.css";
+import Login from "./Login";
 
 const router = createBrowserRouter([
   {
-    path: "/*",
-    element: <Directory />
+    path: "/",
+    element: <DirectoryView />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/directory/:dirId",
+    element: <DirectoryView />,
   },
 ]);
 
 function App() {
-  return <RouterProvider router={router} />
+  return <RouterProvider router={router} />;
 }
 
 export default App;
