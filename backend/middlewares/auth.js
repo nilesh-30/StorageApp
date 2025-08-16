@@ -1,4 +1,4 @@
-import usersData from "./usersDB.json" with {type: "json"}
+import usersData from "../usersDB.json" with {type: "json"}
 
 export default function checkAuth(req, res, next) {
   const { uid } = req.cookies
